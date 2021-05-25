@@ -9,6 +9,13 @@ router.get('/', permission('admin', 'client'), async (req, res) => {
   return res.status(200).json({ data: canines });
 });
 
+// Get a canine by human id
+router.put('/human/:id', permission('admin'), async (req, res) => {
+  const { body, params: { id } } = req;
+  const canines = await sequelize.models.canines.findAll({where: {human: 1}});
+  return res.status(200).json({ data: canines });
+});
+
 // Create a new canine
 router.post('/', permission('admin'), async (req, res) => {
   const { body } = req;
