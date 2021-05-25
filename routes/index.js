@@ -8,5 +8,7 @@ router.use('/auth', require('./auth'));
 router.use('/products', authenticate, require('./products'));
 router.use('/reviews', require('./reviews'));
 router.use('/users', require('./users'));
+router.use('/canines', authenticate, require('./canines'));
+router.use('/humans', authenticate, require('./humans'));
 
 module.exports = router;
